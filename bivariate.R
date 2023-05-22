@@ -1,3 +1,4 @@
+
 library(ggplot2)
 
 path <- "datasets\\diabetes.csv"
@@ -16,10 +17,16 @@ bmi2 = df2$bmi
 glucose1 = df$Glucose
 glucose2 = df2$blood_glucose_level
 
-model1 = lm(bmi1 ~ glucose1 ~ , data=df)
-model2 = lm(bmi2 ~ glucose2 ~ , data=df2)
+model1 = lm(df$Outcome~glucose1+bmi1 , data=df)
 
-inpu1 = data.frame(BMI = c(33, 24), Glucose= c(120, 111))
-predict(model1, inpu1)
-x=data.frame(x=bmi1)
-ggplot(x, aes(x) + geom_line(color="green"))
+model2 = lm(bmi2 ~ glucose2 , data=df2)
+summary(model1)
+
+cor(df$DiabetesPedigreeFunction + glucose1 + bmi1 + df$Age, df$Outcome)
+inpu1 <- data.frame(glucose1=c(120, 121, 125, 180, 190, 200), bmi1=c(33, 45, 22, 34, 25, 40))
+
+intercept = unname(model1$coefficients[1])
+glucose = unname(model1$coefficients[2])
+
+summary(model1)
+predict(model1, newdata=inpu1)

@@ -1,0 +1,2 @@
+this is document 2 with some other words.
+testing this document.

@@ -72,7 +72,7 @@ hdfs dfs -cat /user/shiyaam/ques2/output/part-00000
 
 ### Question 3
 
-`ques3/input/` has an python file called `generate_matrix.py` which will generate two 3x3 Matrices A and B and write the values to another text file.
+`ques3/gen` has an python file called `generate_matrix.py` which will generate two 3x3 Matrices A and B and write the values to another text file.
 
 - To change the dimensions open `generate_matrix.py`.
 - Modify the last line `generate_input_file(m, n, p, "matrix_input.txt")`
@@ -104,17 +104,20 @@ For example `generate_input_file(100, 100, 100, "matrix_input.txt")` will create
 After all these steps [export the project as jar file.](#recompile-the-jar-file).
 
 ```bash
+cd ques3/gen
+python generate_matrix.py
+cd ../../
 hdfs dfs -rm -r /user/shiyaam/ques3/*
 hdfs dfs -mkdir -p /user/shiyaam/ques3/input
 hdfs dfs -put ques3/input/ /user/shiyaam/ques3
-hadoop jar da.jar ques3.InvertedIndexJob /user/shiyaam/ques3/input/ /user/shiyaam/ques3/output/
+hadoop jar da.jar ques3.MatrixMultiplication /user/shiyaam/ques3/input/ /user/shiyaam/ques3/output/
 
 ```
 
 Checking the output
 
 ```bash
-hdfs dfs -cat /user/shiyaam/ques3/output/part-r-00000
+hdfs dfs -head /user/shiyaam/ques3/output/part-r-00000
 ```
 
 ### Recompile the JAR file.

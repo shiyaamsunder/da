@@ -75,9 +75,9 @@ public class MatrixMultiplication {
 
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
-        conf.setInt("m", 3);  // Set the number of rows for Matrix A
-        conf.setInt("n", 3);  // Set the number of common dimension
-        conf.setInt("p", 3);  // Set the number of columns for Matrix B
+        conf.setInt("m", 100);  // Set the number of rows for Matrix A
+        conf.setInt("n", 100);  // Set the number of common dimension
+        conf.setInt("p", 100);  // Set the number of columns for Matrix B
 
         Job job = Job.getInstance(conf, "matrix multiplication");
 

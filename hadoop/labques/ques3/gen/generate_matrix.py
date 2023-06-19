@@ -1,8 +1,8 @@
 import numpy as np
 
 
-import os
 
+import os
 # Define the directory path
 directory = "../input"
 

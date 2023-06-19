@@ -120,6 +120,25 @@ Checking the output
 hdfs dfs -head /user/shiyaam/ques3/output/part-r-00000
 ```
 
+### Question 4
+
+```bash
+cd ques4/gen
+python generate.py
+cd ../../
+hdfs dfs -rm -r /user/shiyaam/ques4/*
+hdfs dfs -mkdir -p /user/shiyaam/ques4/input
+hdfs dfs -put ques4/input/ /user/shiyaam/ques4
+hadoop jar da.jar ques4.LogExtracter /user/shiyaam/ques4/input/ /user/shiyaam/ques4/output
+
+```
+
+Checking the output
+
+```bash
+hdfs dfs -cat /user/shiyaam/ques4/output/part-r-00000
+```
+
 ### Recompile the JAR file.
 
 - Open the source folder in Eclipse

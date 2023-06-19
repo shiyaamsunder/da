@@ -25,7 +25,7 @@ hdfs dfs -rm -r /user/shiyaam/*
 
 ```bash
 cd labques
-hdfs dfs -mkdir -p /user/shiyaam/ques1 /user/shiyaam/ques2/ /user/shiyaam/ques3/ /user/shiyaam/ques4/
+hdfs dfs -mkdir -p /user/shiyaam/ques1 /user/shiyaam/ques2/ /user/shiyaam/ques3/ /user/shiyaam/ques4/ /user/shiyaam/ques5/ /user/shiyaam/ques6/
 
 
 ```
@@ -139,9 +139,40 @@ Checking the output
 hdfs dfs -cat /user/shiyaam/ques4/output/part-r-00000
 ```
 
+### Question 5
+
+```bash
+hdfs dfs -rm -r /user/shiyaam/ques5/*
+hdfs dfs -mkdir -p /user/shiyaam/ques5/input
+hdfs dfs -put ques5/input/ /user/shiyaam/ques5
+hadoop jar da.jar ques5.ProductSalesAnalysis /user/shiyaam/ques5/input/ /user/shiyaam/ques5/output
+
+```
+
+Checking the output
+
+```bash
+hdfs dfs -cat /user/shiyaam/ques5/output/part-r-00000
+```
+
+### Question 6
+
+```bash
+hdfs dfs -rm -r /user/shiyaam/ques6/*
+hdfs dfs -mkdir -p /user/shiyaam/ques6/input
+hdfs dfs -put ques6/input/ /user/shiyaam/ques6
+hadoop jar da.jar ques6.GlucoseAverage /user/shiyaam/ques6/input/ /user/shiyaam/ques6/output
+
+```
+
+Checking the output
+
+```bash
+hdfs dfs -cat /user/shiyaam/ques6/output/part-r-00000
 ### Recompile the JAR file.
 
 - Open the source folder in Eclipse
 - Click File > Export > JAR
 - Export the entire project as labques/da.jar
 - Then run the hadoop jar command.
+```
